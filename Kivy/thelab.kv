@@ -1,0 +1,146 @@
+#<KvLang>
+Example:
+
+<Example>
+    viewclass: 'ImageExample'
+    RecycleBoxLayout:
+        default_size: None,100
+        default_size_hint: 1, None
+        size_hint_y:None
+        height: self.minimum_height
+        orientation:"vertical"
+
+<ImageExample>:
+    cols:2
+    Image:
+        source:"images/image.jpg"
+    Label:
+        text: root.text
+    
+
+<WidgetsExample>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_press(self)
+        size_hint: None,1
+        width: "100dp"
+    Button:
+        text: "Count"
+        on_press: root.on_button_click()
+        disabled:not  root.count_enable
+    Label:
+        text: root.my_text
+        #font_name: ""
+        font_size: "80dp"
+        color: 1, .5, 1
+    Switch:
+        id: my_switch
+        on_active: root.on_switch_active(self)
+        size_hint: None,1
+        width: "100dp"
+        active: True
+    Slider: 
+        id: my_slider
+        min:0
+        max: 100
+        value: 50
+        on_value: root.on_slider_value(self)
+        orientation: "vertical"
+        disabled: not my_switch.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(int(my_slider.value))
+            font_size: "80dp"
+        ProgressBar:
+            max: 100
+            value: my_slider.value
+    TextInput:
+        id: my_text_input
+        size_hint: None,1
+        width: "100dp"
+        text: "Foo"
+        multiline:False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: "Your name is: "+root.text_input_str
+            
+
+
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1,None
+        height: self.minimum_height
+
+<StackLayoutExample>:
+    #left-rigth top-bottom
+    #orientation: "lr-bt"
+    #padding: ("20dp","20dp","20dp","20dp")
+   # spacing: "20dp", "20dp"
+
+<GridLayoutExample@GridLayout>:
+#rows
+#columns
+    cols:2
+    Button:
+        text: "A"
+    Button:
+        text: "B"
+    Button:
+        text: "C"
+    
+    
+<AnchorLayoutExample>:
+    #rigth, left , center
+    #anchor_x: "left" 
+    #top, botom
+    anchor_y: "top"
+    BoxLayout:
+        size_hint: .2, .2 
+        Button:
+            text: "A"
+        Button:
+            text: "B"
+        
+
+    
+<BoxLayoutExample>:
+    orientation: "vertical"
+    Button:
+        text: "A"
+        #size_hint: None,None
+        #size: "40dp","40dp"
+        # x,center_x, rigth
+        # y, center_y, top
+        pos_hint: {"rigth":1}
+    BoxLayout:
+
+        Button:
+            text: "B1"
+        Button:
+            text: "B2"
+        Button:
+            text: "B3"
+    Button: 
+        text: "C"
+
+<MainWidget>:
+    Button:
+        text: "Hello"
+        size: "100dp","80dp" 
+        pos: "100dp", "200dp"
+    Label:
+        text: "Hello2"
+        size: "100dp", "80dp"
+        pos: "200dp", "200dp"
+        color: 1, 0, 0, 1 
+        
+
+#</KvLang>
