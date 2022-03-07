@@ -97,8 +97,8 @@ class MainWidget(Widget):
 class TheLabApp(App):
     pass
 
-Config.set('graphics', 'width', '360')
+#Config.set('graphics', 'width', '360')
 
-Config.set('graphics', 'height', '740')
+#Config.set('graphics', 'height', '740')
 
 TheLabApp().run()
